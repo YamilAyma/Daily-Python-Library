@@ -262,7 +262,7 @@ def main():
     """Generates HTML pages for all Python scripts in the SCRIPTS_DIR."""
     pages_info = []
     for script_path in SCRIPTS_DIR.glob("*.py"):
-        if script_path.name == "__init__.py":
+        if script_path.name in ["__init__.py", "scripttypes.py"]:
             continue
         metadata, functions = load_script_metadata(script_path)
         filename, title = generate_script_page(script_path, metadata, functions)
