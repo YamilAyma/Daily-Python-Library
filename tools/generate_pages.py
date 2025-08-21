@@ -58,7 +58,7 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 SCRIPTS_DIR = ROOT_DIR / "scripts"
-PAGES_DIR = ROOT_DIR / "pages"
+PAGES_DIR = ROOT_DIR / "docs"
 PAGES_DIR.mkdir(exist_ok=True)
 
 # =================== FUNCTIONS FOR BUILD PAGES =======================
