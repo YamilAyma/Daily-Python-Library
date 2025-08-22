@@ -83,6 +83,10 @@ def compare_complexities(snippet1: str, snippet2: str) -> int:
         snippet1 (str): The first code snippet.
         snippet2 (str): The second code snippet.
     
+        Examples:
+    >>> compare_complexities("print('Hello, World!')", "print('Hello, Universe!')")
+    >>> compare_complexities("def foo(): pass", "def bar(): pass")
+
     Returns:
         int: A status code indicating if snippet2 is better (0) or worse (1).
     """
@@ -105,6 +109,9 @@ def to_csv(path_file: str, output_csv: str = "report.csv", row: list[str] = None
         path_file (str): The path to the Python file to analyze.
         output_csv (str, optional): The path to the output CSV file. Defaults to "report.csv".
         row (list[str], optional): The header row for the CSV. Defaults to ["function", "complexity", "lines"].
+    
+    Examples:
+        >>> to_csv("example.py", "report.csv")
     """
     try:
         import complexipy as cp
@@ -134,6 +141,9 @@ def visualize_complexity_with_matplotlib(path_file: str, threshold: int = 15):
     Args:
         path_file (str): The path to the Python file to analyze.
         threshold (int, optional): The complexity threshold for coloring. Defaults to 15.
+    
+    Examples:
+        >>> visualize_complexity_with_matplotlib("example.py", 10)
     """
     try:
         import matplotlib.pyplot as plt
@@ -174,6 +184,10 @@ def compare_complexity_git(path_file: str, before_commit: str = 'HEAD~1') -> int
     Args:
         path_file (str): The path to the Python file to analyze.
         before_commit (str, optional): The Git commit to compare against. Defaults to 'HEAD~1'.
+
+    Examples:
+        >>> compare_complexity_git("example.py", "HEAD~1")
+        >>> compare_complexity_git("example.py", "HEAD~2")
 
     Returns:
         int | None: The difference in complexity, or None if the commit is not found.

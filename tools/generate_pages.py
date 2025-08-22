@@ -36,6 +36,11 @@ PAGE_HEADER = """
 </head>
 <body>
   <header style="padding:1em; background:#f4f4f4;">
+    <nav class="navbar">
+      <a href="index.html">🏠 Home</a>
+      <!--<a href="docs.html">📚 Docs</a>
+      <a href="about.html">ℹ️ About</a>-->
+    </nav> 
     <h1>{title}</h1>
     <p>{description}</p>
   </header>
