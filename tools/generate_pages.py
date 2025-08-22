@@ -16,7 +16,7 @@ PAGE_HEADER = """
   <meta property="og:title" content="{title}" />
   <meta property="og:description" content="{description}" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://github.com/YOUR_USER/YOUR_REPO/blob/main/scripts/{filename}" target="_blank" />
+  <meta property="og:url" content="https://github.com/YamilAyma/Daily-Python-Library/blob/main/scripts/{filename}" target="_blank" />
   <meta property="og:image" content="icon.png" />
   <meta property="og:locale" content="en_US" />
 
@@ -136,7 +136,7 @@ def generate_script_page(script_path: Path, metadata, functions):
     <meta name="description" content="{description}. Script by {metadata.author if metadata else 'unknown author'},
     Version: {metadata.version if metadata else '1'}. Is CLI?: {"✅" if getattr(metadata, "cli", False) else "❌"}">
     """
-    filename = f"{script_path.stem}.html"
+    filename = f"{script_path.stem}.py"
     page_content = PAGE_HEADER.format(title=title, 
                                       description=description,
                                       meta=page_meta,
@@ -146,7 +146,7 @@ def generate_script_page(script_path: Path, metadata, functions):
     page_content += f"""
     <h2>General Info 📄</h2>
     <h4>Source</h4>
-    <p><a href="https://github.com/YOUR_USER/YOUR_REPO/blob/main/scripts/{script_path.name}" target="_blank">View script on GitHub</a></p>
+    <p><a href="https://github.com/YamilAyma/Daily-Python-Library/blob/main/scripts/{script_path.name}" target="_blank">View script on GitHub</a></p>
     <!--
     <ul>
       <li><b>⭐ Version:</b> {metadata.version if metadata else "n/a"}</li>
