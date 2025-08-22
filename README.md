@@ -85,39 +85,7 @@ python-project/
 # 🧩 Scripts
 
 <details>
-<summary><a href="scripts/darts_utils.py">1. 📘 darts_utils.py</a> <kbd>Show details</kbd></summary>
-
-| Description | CLI |
-|-------------|---------|
-| A collection of utility functions to simplify forecasting, backtesting, and anomaly detection with Darts.    
-                    Darts is a Python library designed for user-friendly time series forecasting and anomaly detection. It provides a unified API for various models, from classical statistical methods to deep learning architectures.
-                     | ✅ |
-
-
-| Function | Description | Category | Tags | Status |
-|----------|-------------|----------|------|--------|
-| `detect_anomalies_by_quantile()` | Detects anomalies using a QuantileDetector based on the series' own history. | anomaly_detection | outliers, detection, quantile, statistics | development |
-| `evaluate_model_backtesting()` | Performs historical backtesting to evaluate a model's performance. | evaluation | backtesting, metrics, MAPE, RMSE | development |
-| `quick_forecast_and_plot()` | Trains a simple forecasting model, makes a prediction, and saves a visualization. | forecasting | forecast, visualization, ARIMA, ExponentialSmoothing | development |
-
-
-📝 **Note**: SETUP: pip install darts pandas matplotlib
-
-🔗 **Links**
-| Name | URL |
-|------|-----|
-| Darts GitHub Repository | [https://github.com/unit8co/darts](https://github.com/unit8co/darts) |
-| Demand Forecasting with Darts: A Tutorial | [https://towardsdatascience.com/demand-forecasting-with-darts-a-tutorial-480ba5c24377/](https://towardsdatascience.com/demand-forecasting-with-darts-a-tutorial-480ba5c24377/) |
-| Darts Documentation | [https://unit8co.github.io/darts/](https://unit8co.github.io/darts/) |
-| Resources | [https://unit8.com/resources/darts-time-series-made-easy-in-python/](https://unit8.com/resources/darts-time-series-made-easy-in-python/) |
-
-    
----
-
-</details>
-
-<details>
-<summary><a href="scripts/wrapperscomplexipy.py">2. 📘 wrapperscomplexipy.py</a> <kbd>Show details</kbd></summary>
+<summary><a href="scripts/wrapperscomplexipy.py">1. 📘 wrapperscomplexipy.py</a> <kbd>Show details</kbd></summary>
 
 | Description | CLI |
 |-------------|---------|
@@ -146,25 +114,12 @@ python-project/
 </details>
 
 <details>
-<summary><a href="scripts/darts_utils.py">3. 📘 darts_utils.py</a> <kbd>Show details</kbd></summary>
+<summary><a href="scripts/darts_utils.py">2. 📘 darts_utils.py</a> <kbd>Show details</kbd></summary>
 
 | Description | CLI |
 |-------------|---------|
-| A collection of utility functions to simplify forecasting, backtesting, and anomaly detection with Darts.
-    
-                    <b>About Darts</b>
-                    <p>Darts is a Python library designed for user-friendly time series forecasting and anomaly detection. It provides a unified API for various models, from classical statistical methods to deep learning architectures.</p>
-
-                    <ul>
-                        <li><b>Diverse Models:</b> Includes ARIMA, Exponential Smoothing, Prophet, various regression models, and deep learning models like N-BEATS and TFT.</li>
-                        <li><b>Unified API:</b> Consistent fit() and predict() methods across all models simplify experimentation and comparison.</li>
-                        <li><b>Covariate Support:</b> Allows incorporating past-observed and future-known covariates to improve forecasting accuracy.</li>
-                        <li><b>Probabilistic Forecasting:</b> Many models support generating probabilistic forecasts (e.g., prediction intervals).</li>
-                        <li><b>Backtesting:</b> Facilitates robust model evaluation using historical data.</li>
-                        <li><b>Ensemble Forecasting:</b> Combine predictions from multiple models for enhanced performance.</li>
-                        <li><b>Anomaly Detection:</b> Apply PyOD models or wrap Darts' forecasting/filtering models for anomaly detection.</li>
-                        <li><b>Data Preprocessing:</b> Provides tools for data transformation and handling missing values.</li>
-                    </ul>
+| A collection of utility functions to simplify forecasting, backtesting, and anomaly detection with Darts.    
+                    Darts is a Python library designed for user-friendly time series forecasting and anomaly detection. It provides a unified API for various models, from classical statistical methods to deep learning architectures.
                      | ✅ |
 
 
