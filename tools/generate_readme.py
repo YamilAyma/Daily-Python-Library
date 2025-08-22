@@ -90,8 +90,10 @@ def generate_all_sections():
     scripts = list(SCRIPTS_DIR.glob("*.py"))
 
     # For generate scripts sections
-    for i, script in enumerate(scripts):
+    i = 1
+    for script in scripts:
         if script.name in ignore_files:
             continue
         output += generate_script_section(i, script) + "\n"
+        i += 1
     return output

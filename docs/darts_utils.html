@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Darts Time Series Utilities | ⭐ Python Daily Library</title>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Darts Time Series Utilities" />
+  <meta property="og:description" content="A collection of utility functions to simplify forecasting, backtesting, and anomaly detection with Darts.    
+                    Darts is a Python library designed for user-friendly time series forecasting and anomaly detection. It provides a unified API for various models, from classical statistical methods to deep learning architectures.
+                    " />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/YamilAyma/Daily-Python-Library/blob/main/scripts/darts_utils.py" target="_blank" />
+  <meta property="og:image" content="icon.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Darts Time Series Utilities" />
+  <meta name="twitter:description" content="A collection of utility functions to simplify forecasting, backtesting, and anomaly detection with Darts.    
+                    Darts is a Python library designed for user-friendly time series forecasting and anomaly detection. It provides a unified API for various models, from classical statistical methods to deep learning architectures.
+                    " />
+  
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+    
+    <meta name="description" content="A collection of utility functions to simplify forecasting, backtesting, and anomaly detection with Darts.    
+                    Darts is a Python library designed for user-friendly time series forecasting and anomaly detection. It provides a unified API for various models, from classical statistical methods to deep learning architectures.
+                    . Script by AI,
+    Version: 0.2.1. Is CLI?: ✅">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <header style="padding:1em; background:#f4f4f4;">
+    <h1>Darts Time Series Utilities</h1>
+    <p>A collection of utility functions to simplify forecasting, backtesting, and anomaly detection with Darts.    
+                    Darts is a Python library designed for user-friendly time series forecasting and anomaly detection. It provides a unified API for various models, from classical statistical methods to deep learning architectures.
+                    </p>
+  </header>
+  <main style="max-width:800px; margin:auto; padding:2em;">
+
+    <h2>General Info 📄</h2>
+    <h4>Source</h4>
+    <p><a href="https://github.com/YamilAyma/Daily-Python-Library/blob/main/scripts/darts_utils.py" target="_blank">View script on GitHub</a></p>
+    <!--
+    <ul>
+      <li><b>⭐ Version:</b> 0.2.1</li>
+      <li><b>🧑‍💻 Author:</b> AI</li>
+      <li><b>Status:</b> Development</li>
+      <li><b>CLI:</b> ✅</li>
+    </ul> -->
+
+    <h2>Functions ⚙️</h2>
+    <hr>
+    
+    <section style="margin-bottom:2em;">
+      <h2>quick_forecast_and_plot()</h2>
+      <p><strong>Description:</strong> Trains a simple forecasting model, makes a prediction, and saves a visualization.</p>
+      <p><strong>Category:</strong> forecasting</p>
+      <p><strong>Status:</strong> development</p>
+      <p><strong>Tags:</strong> forecast, visualization, ARIMA, ExponentialSmoothing</p>
+      <p><em>Note:</em> A high-level function to quickly train a model, generate a forecast, and save a plot.</p>
+      
+        <h4>Examples</h4>
+        <pre><code class="language-python">>>> from darts.datasets import AirPassengersDataset
+>>> series = AirPassengersDataset().load()
+>>> forecast = quick_forecast_and_plot(series, forecast_horizon=24)
+>>> print(forecast)</code></pre>
+        
+    </section>
+    
+    <section style="margin-bottom:2em;">
+      <h2>evaluate_model_backtesting()</h2>
+      <p><strong>Description:</strong> Performs historical backtesting to evaluate a model's performance.</p>
+      <p><strong>Category:</strong> evaluation</p>
+      <p><strong>Status:</strong> development</p>
+      <p><strong>Tags:</strong> backtesting, metrics, MAPE, RMSE</p>
+      <p><em>Note:</em> Evaluates a forecasting model using historical backtesting and returns error metrics.</p>
+      
+        <h4>Examples</h4>
+        <pre><code class="language-python">>>> from darts.models import ExponentialSmoothing
+>>> from darts.datasets import AirPassengersDataset
+>>> from darts.metrics import rmse
+>>> series = AirPassengersDataset().load()
+>>> model = ExponentialSmoothing()
+>>> results = evaluate_model_backtesting(series, model, metric=rmse)
+>>> print(f"Average RMSE: {results['avg_metric']:.2f}")</code></pre>
+        
+    </section>
+    
+    <section style="margin-bottom:2em;">
+      <h2>detect_anomalies_by_quantile()</h2>
+      <p><strong>Description:</strong> Detects anomalies using a QuantileDetector based on the series' own history.</p>
+      <p><strong>Category:</strong> anomaly_detection</p>
+      <p><strong>Status:</strong> development</p>
+      <p><strong>Tags:</strong> outliers, detection, quantile, statistics</p>
+      <p><em>Note:</em> Identifies anomalies based on historical quantiles. No forecasting model is used.</p>
+      
+        <h4>Examples</h4>
+        <pre><code class="language-python">>>> from darts.datasets import AirPassengersDataset
+>>> series = AirPassengersDataset().load()
+>>> anomalies = detect_anomalies_by_quantile(series)
+>>> print(f"Detected {int(anomalies.sum().values()[0][0])} anomalies.")</code></pre>
+        
+    </section>
+    
+
+    <h2>Links</h2><ul><li><a href="https://github.com/unit8co/darts" target="_blank">Darts GitHub Repository</a></li><li><a href="https://towardsdatascience.com/demand-forecasting-with-darts-a-tutorial-480ba5c24377/" target="_blank">Demand Forecasting with Darts: A Tutorial</a></li><li><a href="https://unit8co.github.io/darts/" target="_blank">Darts Documentation</a></li><li><a href="https://unit8.com/resources/darts-time-series-made-easy-in-python/" target="_blank">Resources</a></li></ul>
+    
+  </main>
+  <footer style="padding:1em; background:#f4f4f4; margin-top:2em;">
+    <p>Generated with ❤️ for documentation purposes.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+</body>
+</html>

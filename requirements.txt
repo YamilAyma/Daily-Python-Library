@@ -1,4 +1,0 @@
-complexipy
-pandas
-darts
-matplotlib

@@ -225,7 +225,7 @@ def generate_index(pages_info):
         <img src="hero.png" alt="Project logo" class="hero">
 
 <p>
-          <a href="https://github.com/tu-usuario/daily-python-script" target="_blank" aria-label="GitHub">
+          <a href="https://github.com/YamilAyma/Daily-Python-Library" target="_blank" aria-label="GitHub">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 .5C5.648.5.5 5.648.5 12c0 5.088 3.292 9.385 7.865 10.907.575.106.785-.25.785-.556 
                         0-.274-.01-1.002-.015-1.966-3.198.696-3.872-1.54-3.872-1.54-.523-1.328-1.277-1.681-1.277-1.681-1.043-.713.079-.699.079-.699 

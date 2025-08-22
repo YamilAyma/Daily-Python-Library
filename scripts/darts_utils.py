@@ -6,11 +6,16 @@ darts_utils.py: Utilities for the Darts library for time series forecasting and 
 This script provides high-level wrappers to simplify common tasks like forecasting,
 model evaluation, and anomaly detection using the Darts library.
 """
+from __future__ import annotations
 
 import sys
 import os
 import argparse
-from typing import Callable, Dict, List
+from typing import Callable, Dict, TYPE_CHECKING
+
+# For type checking at create documentation, type hints
+if TYPE_CHECKING:
+    from darts import TimeSeries
 
 # Allow running as a script or as a module
 if __name__ == "__main__" and __package__ is None:
@@ -18,41 +23,15 @@ if __name__ == "__main__" and __package__ is None:
     __package__ = os.path.basename(os.path.dirname(os.path.abspath(__file__)))
 
 from .scripttypes import ScriptMetadata, function_metadata, FUNCTIONS_METADATA
-
-# --- Gracefully handle dependencies ---
-try:
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    from darts import TimeSeries
-    from darts.models import ExponentialSmoothing, ARIMA, AutoARIMA
-    from darts.metrics import mape, rmse
-    from darts.ad.detectors import QuantileDetector
-    from darts.datasets import AirPassengersDataset
-except ImportError:
-    print("Error: Required libraries are not installed.")
-    print("Please install them with: 'pip install darts pandas matplotlib'")
-    sys.exit(1)
+FUNCTIONS_METADATA.clear() # Don't remove, it's for documentation
 
 # --- Script Metadata (description is HTML)---
 metadata = ScriptMetadata(
     title="Darts Time Series Utilities",
-    description="""A collection of utility functions to simplify forecasting, backtesting, and anomaly detection with Darts.
-    
-                    <b>About Darts</b>
-                    <p>Darts is a Python library designed for user-friendly time series forecasting and anomaly detection. It provides a unified API for various models, from classical statistical methods to deep learning architectures.</p>
-
-                    <ul>
-                        <li><b>Diverse Models:</b> Includes ARIMA, Exponential Smoothing, Prophet, various regression models, and deep learning models like N-BEATS and TFT.</li>
-                        <li><b>Unified API:</b> Consistent fit() and predict() methods across all models simplify experimentation and comparison.</li>
-                        <li><b>Covariate Support:</b> Allows incorporating past-observed and future-known covariates to improve forecasting accuracy.</li>
-                        <li><b>Probabilistic Forecasting:</b> Many models support generating probabilistic forecasts (e.g., prediction intervals).</li>
-                        <li><b>Backtesting:</b> Facilitates robust model evaluation using historical data.</li>
-                        <li><b>Ensemble Forecasting:</b> Combine predictions from multiple models for enhanced performance.</li>
-                        <li><b>Anomaly Detection:</b> Apply PyOD models or wrap Darts' forecasting/filtering models for anomaly detection.</li>
-                        <li><b>Data Preprocessing:</b> Provides tools for data transformation and handling missing values.</li>
-                    </ul>
+    description="""A collection of utility functions to simplify forecasting, backtesting, and anomaly detection with Darts.    
+                    Darts is a Python library designed for user-friendly time series forecasting and anomaly detection. It provides a unified API for various models, from classical statistical methods to deep learning architectures.
                     """,
-    version="0.1.0",
+    version="0.2.1", # Version bump for lazy loading refactor
     author="AI",
     email="No Email",
     license="MIT",
@@ -94,6 +73,7 @@ def quick_forecast_and_plot(
         
     Raises:
         ValueError: If an unsupported model_name is provided.
+        ImportError: If required libraries are not installed.
 
     Examples:
         >>> from darts.datasets import AirPassengersDataset
@@ -101,6 +81,12 @@ def quick_forecast_and_plot(
         >>> forecast = quick_forecast_and_plot(series, forecast_horizon=24)
         >>> print(forecast)
     """
+    try:
+        import matplotlib.pyplot as plt
+        from darts.models import ExponentialSmoothing, ARIMA, AutoARIMA
+    except ImportError as e:
+        raise ImportError("Required libraries are not installed. Please run: pip install darts matplotlib") from e
+
     models = {
         "exponential": ExponentialSmoothing(),
         "arima": ARIMA(),
@@ -133,7 +119,7 @@ def evaluate_model_backtesting(
     series: TimeSeries,
     model,
     start_point: float = 0.7,
-    metric: Callable = mape
+    metric: Callable | None = None
 ) -> Dict[str, float]:
     """
     Performs historical backtesting to evaluate a model's performance.
@@ -145,7 +131,7 @@ def evaluate_model_backtesting(
         series (TimeSeries): The full time series for backtesting.
         model: An instantiated Darts forecasting model (e.g., ARIMA()).
         start_point (float, optional): The proportion of the series to use as the initial training set. Defaults to 0.7 (70%).
-        metric (Callable, optional): The metric function to use for evaluation (e.g., mape, rmse). Defaults to mape.
+        metric (Callable, optional): The metric function to use for evaluation. Defaults to mape.
 
     Returns:
         Dict[str, float]: A dictionary containing the average metric score.
@@ -153,11 +139,20 @@ def evaluate_model_backtesting(
     Examples:
         >>> from darts.models import ExponentialSmoothing
         >>> from darts.datasets import AirPassengersDataset
+        >>> from darts.metrics import rmse
         >>> series = AirPassengersDataset().load()
         >>> model = ExponentialSmoothing()
         >>> results = evaluate_model_backtesting(series, model, metric=rmse)
         >>> print(f"Average RMSE: {results['avg_metric']:.2f}")
     """
+    try:
+        from darts.metrics import mape
+    except ImportError as e:
+        raise ImportError("Darts library is not installed. Please run: pip install darts") from e
+    
+    if metric is None:
+        metric = mape
+        
     print("Starting historical backtesting...")
     historical_forecasts = model.historical_forecasts(
         series,
@@ -177,7 +172,7 @@ def detect_anomalies_by_quantile(
     series: TimeSeries,
     low_quantile: float = 0.05,
     high_quantile: float = 0.95
-) -> TimeSeries:
+) :
     """
     Detects anomalies using a QuantileDetector based on the series' own history.
 
@@ -193,10 +188,16 @@ def detect_anomalies_by_quantile(
         TimeSeries: A binary series where 1 indicates an anomaly and 0 is normal.
 
     Examples:
+        >>> from darts.datasets import AirPassengersDataset
         >>> series = AirPassengersDataset().load()
         >>> anomalies = detect_anomalies_by_quantile(series)
         >>> print(f"Detected {int(anomalies.sum().values()[0][0])} anomalies.")
     """
+    try:
+        from darts.ad.detectors import QuantileDetector
+    except ImportError as e:
+        raise ImportError("Darts library is not installed. Please run: pip install darts") from e
+        
     print("Detecting anomalies using historical quantiles...")
     
     detector = QuantileDetector(low_quantile=low_quantile, high_quantile=high_quantile)
@@ -213,8 +214,14 @@ def detect_anomalies_by_quantile(
 #    CLI FUNCTIONS
 ##########################
 
-def _load_series_from_csv(filepath: str, time_col: str, value_col: str) -> TimeSeries:
+def _load_series_from_csv(filepath: str, time_col: str, value_col: str) -> "TimeSeries":
     """Helper to load a TimeSeries from a CSV file."""
+    try:
+        import pandas as pd
+        from darts import TimeSeries
+    except ImportError as e:
+        raise ImportError("Required libraries are not installed. Please run: pip install darts pandas") from e
+
     try:
         df = pd.read_csv(filepath, parse_dates=[time_col])
         series = TimeSeries.from_dataframe(df, time_col, value_col)
@@ -226,7 +233,7 @@ def _load_series_from_csv(filepath: str, time_col: str, value_col: str) -> TimeS
 
 def _handle_cli():
     """Manages the Command-Line Interface for this script."""
-    parser = argparse.ArgumentParser(description=metadata.description)
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter, description=metadata.description)
     subparsers = parser.add_subparsers(dest="command", help="Available commands", required=True)
 
     # --- Forecast command ---
@@ -249,28 +256,33 @@ def _handle_cli():
 
     args = parser.parse_args()
 
-    # --- Command execution ---
-    series = _load_series_from_csv(args.input_csv, args.time_col, args.value_col)
-    
-    if args.command == "forecast":
-        quick_forecast_and_plot(
-            series=series,
-            model_name=args.model,
-            forecast_horizon=args.horizon,
-            output_plot_path=args.output_plot
-        )
-        print("Forecast command executed successfully.")
+    try:
+        # --- Command execution ---
+        series = _load_series_from_csv(args.input_csv, args.time_col, args.value_col)
+        
+        if args.command == "forecast":
+            quick_forecast_and_plot(
+                series=series,
+                model_name=args.model,
+                forecast_horizon=args.horizon,
+                output_plot_path=args.output_plot
+            )
+            print("Forecast command executed successfully.")
 
-    elif args.command == "anomalies":
-        anomalies = detect_anomalies_by_quantile(
-            series=series,
-            low_quantile=args.low_q,
-            high_quantile=args.high_q
-        )
-        if args.output_csv:
-            anomalies.pd_dataframe().to_csv(args.output_csv)
-            print(f"Anomalies saved to {args.output_csv}")
-        print("Anomalies command executed successfully.")
+        elif args.command == "anomalies":
+            anomalies = detect_anomalies_by_quantile(
+                series=series,
+                low_quantile=args.low_q,
+                high_quantile=args.high_q
+            )
+            if args.output_csv:
+                anomalies.pd_dataframe().to_csv(args.output_csv)
+                print(f"Anomalies saved to {args.output_csv}")
+            print("Anomalies command executed successfully.")
+    except ImportError as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+
 
 ##########################
 #    EXECUTE
