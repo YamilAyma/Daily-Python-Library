@@ -85,7 +85,34 @@ python-project/
 # 🧩 Scripts
 
 <details>
-<summary><a href="scripts/wrapperscomplexipy.py">1. 📘 wrapperscomplexipy.py</a> <kbd>Show details</kbd></summary>
+<summary><a href="scripts/formulaic_utils.py">1. 📘 formulaic_utils.py</a> <kbd>Show details</kbd></summary>
+
+| Description | CLI |
+|-------------|---------|
+| Utilities to simplify data preprocessing using Wilkinson formulas with Formulaic, creating design matrices for modeling. | ✅ |
+
+
+| Function | Description | Category | Tags | Status |
+|----------|-------------|----------|------|--------|
+| `build_and_train_model()` | Creates a design matrix from a formula and trains a simple Linear Regression model. | modeling | scikit-learn, linear-regression, end-to-end | development |
+| `create_model_matrix()` | Creates a model matrix (and outcome vector, if specified) from a DataFrame. | matrix_creation | formula, dataframe, design-matrix | development |
+| `transform_train_test_split()` | Applies a formula to a train/test split, ensuring consistent encoding. | data_transformation | train-test, encoding, consistency, pipeline | development |
+
+
+📝 **Note**: SETUP: pip install formulaic pandas scikit-learn
+
+🔗 **Links**
+| Name | URL |
+|------|-----|
+| Formulaic GitHub Repository | [https://github.com/matthewwardrop/formulaic](https://github.com/matthewwardrop/formulaic) |
+
+    
+---
+
+</details>
+
+<details>
+<summary><a href="scripts/wrapperscomplexipy.py">2. 📘 wrapperscomplexipy.py</a> <kbd>Show details</kbd></summary>
 
 | Description | CLI |
 |-------------|---------|
@@ -114,7 +141,7 @@ python-project/
 </details>
 
 <details>
-<summary><a href="scripts/darts_utils.py">2. 📘 darts_utils.py</a> <kbd>Show details</kbd></summary>
+<summary><a href="scripts/darts_utils.py">3. 📘 darts_utils.py</a> <kbd>Show details</kbd></summary>
 
 | Description | CLI |
 |-------------|---------|
