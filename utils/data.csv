@@ -1,0 +1,13 @@
+order_id,customer_id,order_date,product_name,category,quantity,unit_price,total_price,status,rating
+101,CUST-001,2025-03-15,Laptop Pro 15,Electronics,1,1200.00,1200.00,Shipped,4.5
+102,CUST-002,2025-03-16,Python for Beginners,Books,2,29.99,59.98,Shipped,5.0
+103,CUST-001,2025-03-17,Wireless Mouse,Electronics,1,25.50,25.50,Delivered,4.0
+104,CUST-003,2025-03-18,Coffee Maker,Home Goods,1,89.99,89.99,Shipped,4.8
+105,CUST-004,2025-03-19,Data Science Handbook,books,1,45.00,54.00,Shipped,5.0
+106,CUST-002,2025-03-20,USB-C Hub,Electronics,1,39.99,39.99,Pending,
+107,CUST-005,2025-03-21,Smart Thermostat,Home Goods,1,199.00,199.00,Shipped,4.6
+108,CUST-001,2025-03-22,Mechanical Keyboard,Electronics,1,110.00,110.00,Delivered,4.9
+109,CUST-003,2025-03-23,The Pragmatic Programmer,Books,1,35.75,35.75,,5.0
+110,CUST-004,2025-03-24,Desk Lamp,Home Goods,2,22.00,44.00,Pending,3.9
+111,CUST-002,2025-03-25,Advanced SQL,Books,1,55.00,55.00,Shipped,4.7
+112,CUST-005,2025-03-26,Bluetooth Speaker,Electronics,1,78.50,78.50,Delivered,6.2
