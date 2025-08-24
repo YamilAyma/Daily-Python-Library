@@ -31,6 +31,11 @@
 </head>
 <body>
   <header style="padding:1em; background:#f4f4f4;">
+    <nav class="navbar">
+      <a href="index.html">🏠 Home</a>
+      <!--<a href="docs.html">📚 Docs</a>
+      <a href="about.html">ℹ️ About</a>-->
+    </nav> 
     <h1>Cognitive Complexity Analysis Script</h1>
     <p>How understandable is your codebase? Use complexipy functions to analyze the cognitive complexity of your code.</p>
   </header>
@@ -71,6 +76,13 @@
       <p><strong>Tags:</strong> complexity, code</p>
       <p><em>Note:</em> Analyze a code snippet for cognitive complexity.</p>
       
+        <h4>Examples</h4>
+        <pre><code class="language-python">>>> compare_complexities("print('Hello, World!')", "print('Hello, Universe!')")
+>>> compare_complexities("def foo(): pass", "def bar(): pass")
+
+Returns:
+    int: A status code indicating if snippet2 is better (0) or worse (1).</code></pre>
+        
     </section>
     
     <section style="margin-bottom:2em;">
@@ -81,6 +93,9 @@
       <p><strong>Tags:</strong> complexity, csv</p>
       <p><em>Note:</em> Generate a CSV report from a Python file's complexity analysis.</p>
       
+        <h4>Examples</h4>
+        <pre><code class="language-python">>>> to_csv("example.py", "report.csv")</code></pre>
+        
     </section>
     
     <section style="margin-bottom:2em;">
@@ -91,6 +106,9 @@
       <p><strong>Tags:</strong> complexity, visualization</p>
       <p><em>Note:</em> Visualize a file's complexity analysis. You can expand this script with your visualizations.</p>
       
+        <h4>Examples</h4>
+        <pre><code class="language-python">>>> visualize_complexity_with_matplotlib("example.py", 10)</code></pre>
+        
     </section>
     
     <section style="margin-bottom:2em;">
@@ -101,6 +119,13 @@
       <p><strong>Tags:</strong> complexity, git</p>
       <p><em>Note:</em> Compare a file's complexity against a previous Git commit.</p>
       
+        <h4>Examples</h4>
+        <pre><code class="language-python">>>> compare_complexity_git("example.py", "HEAD~1")
+    >>> compare_complexity_git("example.py", "HEAD~2")
+
+Returns:
+    int | None: The difference in complexity, or None if the commit is not found.</code></pre>
+        
     </section>
     
 
