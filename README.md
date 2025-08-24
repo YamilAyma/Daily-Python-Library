@@ -1,5 +1,5 @@
 <div align="center">
-    <h1> 🐍 Daily Python Library </h1>
+    <h1> 🐍 Daily Python Script </h1>
     <h2 style="font-size:1rem"> Scripts for you! </h2>
     <p>
     This repository brings together a variety of useful scripts for everyday tasks, automation, and analysis, published daily using different libraries or tools.
