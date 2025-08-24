@@ -25,7 +25,8 @@ if __name__ == "__main__" and __package__ is None:
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     __package__ = os.path.basename(os.path.dirname(os.path.abspath(__file__)))
 
-from .scripttypes import ScriptMetadata, function_metadata
+from .scripttypes import ScriptMetadata, function_metadata, FUNCTIONS_METADATA
+FUNCTIONS_METADATA.clear()
 
 # --- Script Metadata ---
 metadata = ScriptMetadata(
