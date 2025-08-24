@@ -85,7 +85,36 @@ python-project/
 # 🧩 Scripts
 
 <details>
-<summary><a href="scripts/formulaic_utils.py">1. 📘 formulaic_utils.py</a> <kbd>Show details</kbd></summary>
+<summary><a href="scripts/generate_workflows_pointblank.py">1. 📘 generate_workflows_pointblank.py</a> <kbd>Show details</kbd></summary>
+
+| Description | CLI |
+|-------------|---------|
+| Utilities to accelerate data validation workflows, primarily by generating baseline validation YAML files from existing data and create actions | ✅ |
+
+
+| Function | Description | Category | Tags | Status |
+|----------|-------------|----------|------|--------|
+| `generate_baseline_yaml()` | Generates a baseline validation YAML file from a DataFrame. | generation | yaml, scaffolding, profiling | development |
+| `run_validation_from_yaml()` | Executes a Pointblank validation defined in a YAML file. | execution | yaml, workflow, integration | development |
+
+
+📝 **Note**: SETUP: pip install pointblank pandas pyyaml
+
+🔗 **Links**
+| Name | URL |
+|------|-----|
+| Pointblank GitHub Repository | [https://github.com/posit-dev/pointblank](https://github.com/posit-dev/pointblank) |
+| Pointblank Documentation | [https://posit-dev.github.io/pointblank/user-guide/](https://posit-dev.github.io/pointblank/user-guide/) |
+| with YAML | [https://posit-dev.github.io/pointblank/user-guide/yaml-validation-workflows.html](https://posit-dev.github.io/pointblank/user-guide/yaml-validation-workflows.html) |
+| about actions | [https://posit-dev.github.io/pointblank/user-guide/actions.html](https://posit-dev.github.io/pointblank/user-guide/actions.html) |
+
+    
+---
+
+</details>
+
+<details>
+<summary><a href="scripts/formulaic_utils.py">2. 📘 formulaic_utils.py</a> <kbd>Show details</kbd></summary>
 
 | Description | CLI |
 |-------------|---------|
@@ -112,7 +141,7 @@ python-project/
 </details>
 
 <details>
-<summary><a href="scripts/wrapperscomplexipy.py">2. 📘 wrapperscomplexipy.py</a> <kbd>Show details</kbd></summary>
+<summary><a href="scripts/wrapperscomplexipy.py">3. 📘 wrapperscomplexipy.py</a> <kbd>Show details</kbd></summary>
 
 | Description | CLI |
 |-------------|---------|
@@ -141,7 +170,7 @@ python-project/
 </details>
 
 <details>
-<summary><a href="scripts/darts_utils.py">3. 📘 darts_utils.py</a> <kbd>Show details</kbd></summary>
+<summary><a href="scripts/darts_utils.py">4. 📘 darts_utils.py</a> <kbd>Show details</kbd></summary>
 
 | Description | CLI |
 |-------------|---------|
