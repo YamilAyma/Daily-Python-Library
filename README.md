@@ -141,7 +141,33 @@ python-project/
 </details>
 
 <details>
-<summary><a href="scripts/wrapperscomplexipy.py">3. 📘 wrapperscomplexipy.py</a> <kbd>Show details</kbd></summary>
+<summary><a href="scripts/image_quote_generator.py">3. 📘 image_quote_generator.py</a> <kbd>Show details</kbd></summary>
+
+| Description | CLI |
+|-------------|---------|
+| Generates a batch of images by overlaying text quotes onto background images, with text wrapping and customization options. | ✅ |
+
+
+| Function | Description | Category | Tags | Status |
+|----------|-------------|----------|------|--------|
+| `generate_quote_images()` | Generates a series of images with quotes overlaid. | generation | image, text, quotes | development |
+
+
+📝 **Note**: SETUP: pip install Pillow. You also need a .ttf or .otf font file.
+
+🔗 **Links**
+| Name | URL |
+|------|-----|
+| Pillow Documentation | [https://pillow.readthedocs.io/en/stable/](https://pillow.readthedocs.io/en/stable/) |
+| Google Fonts (for .ttf files) | [https://fonts.google.com/](https://fonts.google.com/) |
+
+    
+---
+
+</details>
+
+<details>
+<summary><a href="scripts/wrapperscomplexipy.py">4. 📘 wrapperscomplexipy.py</a> <kbd>Show details</kbd></summary>
 
 | Description | CLI |
 |-------------|---------|
@@ -170,7 +196,7 @@ python-project/
 </details>
 
 <details>
-<summary><a href="scripts/darts_utils.py">4. 📘 darts_utils.py</a> <kbd>Show details</kbd></summary>
+<summary><a href="scripts/darts_utils.py">5. 📘 darts_utils.py</a> <kbd>Show details</kbd></summary>
 
 | Description | CLI |
 |-------------|---------|
